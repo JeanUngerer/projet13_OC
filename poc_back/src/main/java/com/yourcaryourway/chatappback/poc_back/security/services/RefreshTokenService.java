@@ -1,11 +1,12 @@
 package com.yourcaryourway.chatappback.poc_back.security.services;
 
 
-import com.ts.gim.entities.GimUser;
-import com.ts.gim.entities.RefreshToken;
-import com.ts.gim.exceptions.ForbidenExceptionHandler;
-import com.ts.gim.repositories.RefreshTokenRepository;
-import com.ts.gim.services.GimUserService;
+
+import com.yourcaryourway.chatappback.poc_back.entities.RefreshToken;
+import com.yourcaryourway.chatappback.poc_back.entities.User;
+import com.yourcaryourway.chatappback.poc_back.exceptions.ForbidenExceptionHandler;
+import com.yourcaryourway.chatappback.poc_back.repositories.RefreshTokenRepository;
+import com.yourcaryourway.chatappback.poc_back.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class RefreshTokenService {
     RefreshTokenRepository refreshTokenRepository;
 
     @Autowired
-    GimUserService userService;
+    UserService userService;
 
     /**
      * Creates a Refresh Token for a username.
@@ -35,11 +36,11 @@ public class RefreshTokenService {
      */
     public RefreshToken createRefreshToken(String username){
         try {
-            GimUser gimUser = userService.findUserByEmail(username);
-            refreshTokenRepository.findByGimUserInfoId(gimUser.getId()).ifPresent(refreshToken
+            User gimUser = userService.findUserByEmail(username);
+            refreshTokenRepository.findByUserInfoId(gimUser.getId()).ifPresent(refreshToken
                     -> refreshTokenRepository.deleteById(refreshToken.getId()));
             RefreshToken refreshToken = RefreshToken.builder()
-                    .gimUserInfo(gimUser)
+                    .userInfo(gimUser)
                     .token(UUID.randomUUID().toString())
                     .expiryDate(Instant.now().plusSeconds(604800)) // set expiry of refresh token to 7 days
                     .build();
@@ -70,7 +71,7 @@ public class RefreshTokenService {
     public RefreshToken verifyExpiration(RefreshToken token){
         if(token.getExpiryDate().compareTo(Instant.now())<0){
             refreshTokenRepository.delete(token);
-            log.info("Refresh token is expired for user : " + token.getGimUserInfo().getUsername());
+            log.info("Refresh token is expired for user : " + token.getUserInfo().getEmail());
             throw new ForbidenExceptionHandler(token.getToken() + " Refresh token is expired. Please make a new login..!");
         }
         return token;

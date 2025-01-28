@@ -1,0 +1,17 @@
+.sent {
+  text-align: right;
+  color: green;
+}
+
+.received {
+  text-align: left;
+  color: blue;
+}
+
+.headd{
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

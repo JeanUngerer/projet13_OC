@@ -1,0 +1,15 @@
+<div>
+  <h3>Messages for Chat {{ chatId }}</h3>
+  <div class="headd">
+    <div class="received">Support</div>
+    <div class="sent">User {{"__" + chat.userId}}</div>
+  </div>
+  <br>
+  <div *ngFor="let message of messages">
+    <p [class]="message.userId == chat.userId ? 'sent' : 'received'">
+      {{ message.content }} <span>({{ message.timestamp | date: 'short' }})</span>
+    </p>
+  </div>
+  <input [(ngModel)]="newMessage" placeholder="Type a message..." />
+  <button (click)="sendMessage()">Send</button>
+</div>

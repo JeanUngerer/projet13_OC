@@ -1,0 +1,11 @@
+<br>
+<button *ngIf="!selectedChatId" (click)="newChat()">Start Chat</button>
+<div class="contain">
+  <h2>My Chats</h2>
+  <ul>
+    <li *ngFor="let chat of chats" (click)="selectChat(chat.id)" class="selecting">
+      Chat with User {{ chat.userId }} - Status: {{ chat.status }}
+    </li>
+  </ul>
+  <app-chat-messages *ngIf="selectedChatId" [chatIdSubject]="selectedIdSubject" [chats]="chats"></app-chat-messages>
+</div>

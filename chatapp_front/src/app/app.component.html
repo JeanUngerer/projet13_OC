@@ -1,0 +1,5 @@
+<ng-container  *ngIf="!router.isActive('/login', true)">
+  <app-header/>
+</ng-container>
+
+<router-outlet *ngIf="router.isActive('/login', true)"/>

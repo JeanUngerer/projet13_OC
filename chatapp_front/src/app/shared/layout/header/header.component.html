@@ -1,0 +1,10 @@
+<mat-toolbar>
+  <a routerLink="/" title="home">
+    <img class="logo" ngSrc="/assets/images/logos/logo.png" alt="logo" height="80" width="167">
+  </a>
+  <button (click)="logout()" mat-menu-item>
+
+    <span >{{"Logout"}}</span>
+  </button>
+</mat-toolbar>
+<router-outlet/>

@@ -1,0 +1,16 @@
+<main>
+
+  <form [formGroup]="loginForm" style="text-align: center">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'username' }}</mat-label>
+      <input matInput formControlName="email" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'password' }}</mat-label>
+      <input matInput formControlName="password" required>
+    </mat-form-field>
+    <br>
+    <button mat-flat-button type="submit" (click)="login()">{{ 'signIn' }}</button>
+  </form>
+</main>

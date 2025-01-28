@@ -1,0 +1,69 @@
+
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+mat-card {
+    padding: 24px;
+    min-width: 600px;
+    border-radius: 0;
+    background-color: #FFFFFFDD;
+
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .login-description {
+        padding: 24px 0;
+        font-size: 20px;
+        letter-spacing: 2px;
+        line-height: 32px;
+        text-align: center;
+    }
+}
+
+.mdc-button.mat-black,
+.mat-mdc-stroked-button.mat-black {
+    color: #333;
+    border-radius: 0;
+    font-size: 0.9em;
+
+    img {
+        height: 25px;
+    }
+
+    .button-text {
+        padding: 0 12px;
+        vertical-align: super;
+    }
+}
+
+.mat-mdc-unelevated-button.mat-black:hover,
+.mat-mdc-raised-button.mat-black:hover {
+    color: #f0fff3;
+    background-color: #444;
+}
+
+.mat-mdc-unelevated-button:not(:disabled, :hover).mat-black,
+.mat-mdc-raised-button.mat-black,
+.mat-mdc-fab.mat-black,
+.mat-mdc-mini-fab.mat-black {
+    color: #f0fff3;
+    background-color: #333;
+}
+
+.mat-mdc-icon-button.mat-black {
+    color: #333;
+}

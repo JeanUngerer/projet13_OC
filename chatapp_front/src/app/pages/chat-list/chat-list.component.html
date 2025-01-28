@@ -1,0 +1,12 @@
+<br>
+<button *ngIf="!chatopened" (click)="openChats()">Open Chats</button>
+<div class="contain">
+  <h2>Active Chats</h2>
+  <ul>
+    <li *ngFor="let chat of chats" (click)="selectChat(chat.id)" class="selecting">
+      Chat with User {{ chat.userId }} - Status: {{ chat.status }}
+    </li>
+  </ul>
+  <app-chat-messages *ngIf="selectedChatId" [chatIdSubject]="selectedIdSubject" [chats]="chats"></app-chat-messages>
+  <p *ngIf="displayClosed" style="color: darkred; font-size: large">Chat closed</p>
+</div>

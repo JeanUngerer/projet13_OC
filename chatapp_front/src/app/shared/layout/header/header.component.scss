@@ -1,0 +1,12 @@
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  height: 90px;
+  width: 100%;
+  z-index: 999;
+  padding: 0 80px;
+  justify-content: space-between;
+  background: cornflowerblue;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+  0 1px 2px rgba(0, 0, 0, 0.24);
+}

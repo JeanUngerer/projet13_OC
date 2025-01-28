@@ -2,9 +2,9 @@
 
 ## Front
 
-Go to backend folder
+Go to frontend folder
 
-> cd chatappfront
+> cd chatapp_front
 
 Install your node_modules before starting (`npm install`).
 
